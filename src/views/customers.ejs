@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Películas</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+    </head>
+    <body>    
+        <nav class = "navbar navbar-dark bg-dark"> 
+            <a href="/" class="navbar-brand"> PELICULAS</a>
+        </nav>
+
+
+        <div class="container mt-5 col-md-12">
+            <div class="row mt-5">
+                <div class="col-md-10">
+                    <h2>Lista de Peliculas</h2>
+                   <table class="table table-bordered table-hover">
+                       <thread>
+                           <tr>
+                               <th>no.</th>
+                               <th>Nombre</th>
+                               <th>Descripcion</th>
+                               <th>Año</th>
+                               <th>Categoria</th>
+                           </tr>
+                       </thread>
+                       <tbody>
+                            {{#each results}}
+                            <tr>
+                                <td>{{ id_película }}</td>  
+                              <td>{{ nombre }}</td>
+                              <td>{{ descripcion}}</td>
+                              <td>{{ año }}</td>
+                              <td>{{ categoria }}</td>
+                              <td>
+                                <a href="#" class="btn btn-sm btn-info edit">Editar</a>
+                                <a href="#" class="btn btn-sm btn-danger delete">Eliminar</a>
+                              </td>
+                            </tr>
+                            {{/each}}
+                       </tbody>
+                   </table>
+                    
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/add" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="descripcion" placeholder="Descripcion" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="año" placeholder="Año" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="categoria" placeholder="Categoria" class="form-control">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar Pelicula                                
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+     
+
+     <!-- Modal Update Product-->
+   <form action="/update" method="post">
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <div class="form-group">
+               <input type="text" name="product_name" class="form-control product_name" placeholder="Product Name" required>
+           </div>
+
+           <div class="form-group">
+               <input type="text" name="product_price" class="form-control price" placeholder="Price" required>
+           </div>
+         </div>
+         <div class="modal-footer">
+           <input type="hidden" name="id" class="product_id">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="submit" class="btn btn-primary">Update</button>
+         </div>
+       </div>
+     </div>
+    </div>
+</form>
+
+<!-- Modal Delete Product-->
+<form id="add-row-form" action="/delete" method="post">
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                                   <h5 class="modal-title" id="myModalLabel">Eliminar Pelicula</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                                            <strong>Esta seguro que desea eliminarlo?</strong>
+              </div>
+              <div class="modal-footer">
+                                       <input type="hidden" name="product_id" class="form-control product_id2" required>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                   <button type="submit" class="btn btn-success">Delete</button>
+              </div>
+               </div>
+       </div>
+    </div>
+</form>
+
+
+
+    </body>
+</html> 

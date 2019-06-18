@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Películas</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+    </head>
+    <body>  
+        <nav class = "navbar navbar-dark bg-dark"> 
+            <a href="/" class="navbar-brand"> PELICULAS</a>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card">
+                    <div class="card-body">
+                        <form action="/update/{{results.id_película}}" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" value="{{results.nombre}}"  class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="descripcion" value="{{results.descripcion}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="año" value="{{results.año}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="categoria" value="{{results.categoria}}" class="form-control">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Editar Pelicula                                
+                                </button>
+                        </form>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html> 
